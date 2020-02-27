@@ -14,6 +14,8 @@ import {createStackNavigator} from '@react-navigation/stack'
 
 import Login from './Login.js'
 import Register from './Register.js'
+import Slideshow from './Slideshow.js'
+import CreateUser from './CreateUser.js'
 
 const Stack = createStackNavigator()
 
@@ -28,8 +30,16 @@ const App = () => {
             {props => <Register {...props}/>}
           </Stack.Screen>
           <Stack.Screen
-            name="Profile"
+            name="Login"
             component={Login}
+          />
+          <Stack.Screen
+            name="Slideshow"
+            component={Slideshow}
+          />
+          <Stack.Screen
+            name="CreateUser"
+            component={CreateUser}
           />
         </Stack.Navigator>
       </NavigationContainer>
