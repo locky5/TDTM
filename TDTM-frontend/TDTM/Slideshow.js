@@ -11,46 +11,23 @@ import {
 } from 'react-native'
 import ViewPager from '@react-native-community/viewpager'
 
-import PokemonPage from './PokemonPage.js'
+import UserPage from './UserPage.js'
 
 class SlideShow extends React.Component {
 
   state = {
-    pokemon: null,
+    users: null,
     screenWidth: Dimensions.get('window').width
   }
 
   componentDidMount() {
-    fetch('https://pokeapi.co/api/v2/pokemon/?limit=20')
+    fetch('http://localhost:3000/users')
       .then(res => res.json())
-      .then(pokemons => {
+      .then(users => {
         this.setState({
-          pokemon: pokemons
+          users: users
         })
       })
-  }
-
-  getViews = () => {
-    let string = ''
-    if (this.state.pokemon) {
-      for (let i = 0; i < this.state.pokemon.results.length; i++) {
-        string += this.returnView(this.state.pokemon.results[i])
-      }
-    }
-    return string
-  }
-
-  returnView = (pokemon) => {
-    return (
-      <View
-        key={pokemon.url.split('/')[pokemon.url.split('/').length - 2]}
-        style={{width: this.state.screenWidth}}
-      >
-        <Text>
-          {pokemon ? pokemon.name : null}
-        </Text>
-      </View>
-    )
   }
 
   render() {
@@ -59,7 +36,7 @@ class SlideShow extends React.Component {
         horizontal={true}
         pagingEnabled={true}
       >
-        {this.state.pokemon ? this.state.pokemon.results.map(pokemon => <PokemonPage pokemon={pokemon}/>) : null}
+        {this.state.users ? this.state.users.map(user => <UserPage user={user}/>) : null}
       </ScrollView>
     )
   }
