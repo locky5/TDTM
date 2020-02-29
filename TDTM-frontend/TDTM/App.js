@@ -27,16 +27,26 @@ class App extends React.Component {
   }
 
   setUser = (user) => {
-    let id = user.id
+    let object = {
+      id: user.id
+    }
+
     this.setState({
       currentUser: user
     }, () => {
-      AsyncStorage.setItem('user_id', id.toString())
+      AsyncStorage.setItem('user_id', JSON.stringify(object), () => {
+        AsyncStorage.getItem('user_id', (err, result) => {
+          console.log(result)
+        })
+      })
     })
   }
 
   componentDidMount() {
-    const user_id = parseInt(AsyncStorage.getItem('user_id'))
+    const user_id = AsyncStorage.getItem('user_id', (err, result) => {
+      return result.id
+    })
+    console.log(JSON.stringify(user_id))
 
     if (user_id) {
       fetch('http://localhost:3000/api/v1/auto_login', {
@@ -58,7 +68,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(AsyncStorage.getItem('user_id'))
     return (
         <NavigationContainer>
           <Stack.Navigator>

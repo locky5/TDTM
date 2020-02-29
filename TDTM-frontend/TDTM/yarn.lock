@@ -860,6 +860,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
+"@react-native-community/async-storage@^1.6.3":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.8.1.tgz#c93e69dcf948667b207e409b8039b7edf199159b"
+  integrity sha512-MA1fTp4SB7OOtDmNAwds6jIpiwwty1NIoFboWjEWkoyWW35zIuxlhHxD4joSy21aWEzUVwvv6JJ2hSsP/HTb7A==
+
 "@react-native-community/cli-debugger-ui@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-3.0.0.tgz#d01d08d1e5ddc1633d82c7d84d48fff07bd39416"
@@ -5233,6 +5238,11 @@ react-native-gesture-handler@^1.6.0:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-image-picker@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-2.3.1.tgz#1977b65e07793d2c0b2d1976fb675c5f75ad7f11"
+  integrity sha512-c/a2h7/T7yBo5KlNQhcSn4xf4+6Li6LfJ59+GZT1ZzzWrj/6X8DiJ/TJBOlOZMC5tJriZKuRkWSsr74k6z+brw==
+
 react-native-iphone-x-helper@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
@@ -6147,6 +6157,13 @@ symbol-tree@^3.2.2:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
+
+sync-storage@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/sync-storage/-/sync-storage-0.4.2.tgz#5af55cdf12108535525b36aa77587d3db7a0b5fb"
+  integrity sha512-2vv1wjlMv8H3VaoPguScy3HNcE59MaVK4C/3LbKFGdgOqKUm8vfHB3VTqiN+jK4GvwkdS8X4RR4GppgWx14qAg==
+  dependencies:
+    "@react-native-community/async-storage" "^1.6.3"
 
 table@^5.2.3:
   version "5.4.6"

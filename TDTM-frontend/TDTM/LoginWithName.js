@@ -43,6 +43,7 @@ class LoginWithName extends React.Component {
           this.props.setUser(response)
         }
       })
+      .then(this.props.navigation.navigate('Home'))
   }
 
   render() {

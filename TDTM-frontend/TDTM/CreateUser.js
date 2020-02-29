@@ -72,7 +72,6 @@ class CreateUser extends React.Component {
   render() {
     return (
       <View>
-      {console.warn(this.state)}
       <TextInput
         name='name'
         style={styles.textInput}
