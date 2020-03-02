@@ -46,7 +46,6 @@ class App extends React.Component {
     const user_id = AsyncStorage.getItem('user_id', (err, result) => {
       return result.id
     })
-    console.log(JSON.stringify(user_id))
 
     if (user_id) {
       fetch('http://localhost:3000/api/v1/auto_login', {
