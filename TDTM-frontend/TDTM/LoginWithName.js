@@ -22,7 +22,6 @@ class LoginWithName extends React.Component {
 
   loginUser = (event) => {
     event.preventDefault()
-    console.warn(this.state)
 
     fetch('http://localhost:3000/login', {
       method: "POST",
