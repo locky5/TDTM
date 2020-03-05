@@ -43,9 +43,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const user_id = AsyncStorage.getItem('user_id', (err, result) => {
-      return result.id
-    })
+    const user_id = this.state.currentUser ? this.state.currentUser.id : null
 
     if (user_id) {
       fetch('http://localhost:3000/api/v1/auto_login', {
@@ -86,8 +84,9 @@ class App extends React.Component {
             </Stack.Screen>
             <Stack.Screen
               name="Slideshow"
-              component={Slideshow}
-            />
+            >
+              {props => <Slideshow {...props} user={this.state.currentUser}/>}
+            </Stack.Screen>
             <Stack.Screen
               name="CreateUser"
               component={CreateUser}

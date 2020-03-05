@@ -21,9 +21,7 @@ class UserPage extends React.Component {
 
   postMatch = (event) => {
     event.preventDefault()
-    console.log(AsyncStorage.getItem(('user_id'), (err, result) => {
-      return result.id
-    }))
+    console.warn(this.props.user.id)
 
     fetch('http://localhost:3000/matches', {
       method: 'POST',
@@ -32,10 +30,8 @@ class UserPage extends React.Component {
         Accept: 'application/json'
       },
       body: JSON.stringify({
-        user_id: AsyncStorage.getItem(('user_id'), (err, result) => {
-          return result.id
-        }),
-        user_id2: this.props.user.user_id
+        user_id: this.props.login.id,
+        user_id2: this.props.user.id
       })
     })
       .then(res => res.json())

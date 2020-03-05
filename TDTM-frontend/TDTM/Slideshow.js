@@ -36,7 +36,7 @@ class SlideShow extends React.Component {
         horizontal={true}
         pagingEnabled={true}
       >
-        {this.state.users ? this.state.users.map(user => <UserPage user={user}/>) : null}
+        {this.state.users ? this.state.users.map(user => <UserPage user={user} login={this.props.user}/>) : null}
       </ScrollView>
     )
   }
