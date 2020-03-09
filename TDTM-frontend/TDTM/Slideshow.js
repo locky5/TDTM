@@ -24,8 +24,14 @@ class SlideShow extends React.Component {
     fetch('http://localhost:3000/users')
       .then(res => res.json())
       .then(users => {
+        let otherUsers
+        if (this.props.user) {
+          otherUsers = users.filter(user => user.id !== this.props.user.id)
+        } else {
+          otherUsers = users
+        }
         this.setState({
-          users: users
+          users: otherUsers
         })
       })
   }

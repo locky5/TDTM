@@ -34,6 +34,10 @@ class Home extends React.Component {
           title="Create User"
           onPress={() => this.props.navigation.navigate('CreateUser')}
         />
+        <Button
+          title="Matches"
+          onPress={() => this.props.navigation.navigate('Matches')}
+        />
       </View>
     )
   }

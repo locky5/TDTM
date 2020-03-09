@@ -16,13 +16,21 @@ import {
 class UserPage extends React.Component {
 
   state = {
-    screenWidth: Dimensions.get('window').width
+    screenWidth: Dimensions.get('window').width,
+    matches: null
   }
 
-  postMatch = (event) => {
-    event.preventDefault()
-    console.warn(this.props.user.id)
+  componentDidMount() {
+    fetch('http://localhost:3000/matches')
+      .then(res => res.json())
+      .then(matches => {
+        this.setState({
+          matches: matches
+        })
+      })
+  }
 
+  getThisMatch = () => {
     fetch('http://localhost:3000/matches', {
       method: 'POST',
       headers: {
@@ -42,6 +50,35 @@ class UserPage extends React.Component {
           console.warn(response)
         }
       })
+  }
+
+  checkMatches = (matches) => {
+    let user_id = this.props.login.id
+    let user_id2 = this.props.user.id
+
+    console.warn(user_id, user_id2)
+
+    for (let i = 0; i < matches.length; i++) {
+      console.warn(matches[i].user_id, matches[i].user_id2)
+      if (matches[i].user_id === user_id && matches[i].user_id2 === user_id2) {
+        return true
+      }
+    }
+
+    return false
+  }
+
+  postMatch = (event) => {
+    event.preventDefault()
+
+    if (this.state.matches) {
+      //to prevent same matches...perhaps later just pop it out of the stack of users
+      if (this.checkMatches(this.state.matches)) {
+        console.warn('match already there')
+      } else {
+        this.getThisMatch()
+      }
+    }
   }
 
   render() {

@@ -11,6 +11,7 @@ import {
   Button,
   Dimensions,
   Image,
+  Navigation
 } from 'react-native'
 import ImagePicker from 'react-native-image-picker'
 
@@ -54,6 +55,8 @@ class CreateUser extends React.Component {
           console.log(response)
         }
       })
+
+    this.props.navigation.navigate('Home')
   }
 
   handleChoosePhoto = () => {

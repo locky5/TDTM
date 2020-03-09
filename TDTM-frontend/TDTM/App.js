@@ -5,8 +5,7 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar,
-  AsyncStorage
+  StatusBar
 } from 'react-native'
 
 import {NavigationContainer} from '@react-navigation/native'
@@ -17,6 +16,7 @@ import LoginWithName from './LoginWithName.js'
 import Home from './Home.js'
 import Slideshow from './Slideshow.js'
 import CreateUser from './CreateUser.js'
+import Matches from './Matches.js'
 
 const Stack = createStackNavigator()
 
@@ -33,12 +33,6 @@ class App extends React.Component {
 
     this.setState({
       currentUser: user
-    }, () => {
-      AsyncStorage.setItem('user_id', JSON.stringify(object), () => {
-        AsyncStorage.getItem('user_id', (err, result) => {
-          console.log(result)
-        })
-      })
     })
   }
 
@@ -89,8 +83,14 @@ class App extends React.Component {
             </Stack.Screen>
             <Stack.Screen
               name="CreateUser"
-              component={CreateUser}
-            />
+            >
+              {props => <CreateUser {...props}/>}
+            </Stack.Screen>
+            <Stack.Screen
+              name="Matches"
+            >
+              {props => <Matches {...props} user={this.state.currentUser}/>}
+            </Stack.Screen>
           </Stack.Navigator>
         </NavigationContainer>
     )
