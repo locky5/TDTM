@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(name: params[:name], password: params[:password], age: params[:age], education: params[:education], height: params[:height], description: params[:description], photo_url: params[:photo_url])
+    user = User.new(name: params[:name], password: params[:password], age: params[:age], gender: params[:gender], genderpreference: params[:genderpreference], education: params[:education], height: params[:height], description: params[:description], photo_url: params[:photo_url])
     if user.save
       render json: user
     else

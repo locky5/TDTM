@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_02_28_025620) do
     t.string "name"
     t.string "password_digest"
     t.integer "age"
+    t.string "gender"
+    t.string "genderpreference"
     t.string "education"
     t.string "height"
     t.string "description"
