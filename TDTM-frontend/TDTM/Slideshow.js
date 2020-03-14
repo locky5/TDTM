@@ -26,8 +26,16 @@ class SlideShow extends React.Component {
       .then(users => {
         let otherUsers
         if (this.props.user) {
-          //can't show users that are himself/herself... later add gender filters
-          otherUsers = users.filter(user => user.id !== this.props.user.id)
+          let unfilteredUsers = users.filter(user => user.id !== this.props.user.id)
+
+          //gender preference filter
+          if (this.props.user.genderpreference === 'Male') {
+            otherUsers = unfilteredUsers.filter(user => user.gender === 'Male')
+          } else if (this.props.user.genderpreference === 'Female') {
+            otherUsers = unfilteredUsers.filter(user => user.gender === 'Female')
+          } else if (this.props.user.genderpreference === 'Both') {
+            otherUsers = unfilteredUsers
+          }
         } else {
           otherUsers = users
         }
