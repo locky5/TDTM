@@ -17,6 +17,7 @@ import Home from './Home.js'
 import Slideshow from './Slideshow.js'
 import CreateUser from './CreateUser.js'
 import Matches from './Matches.js'
+import Preferences from './Preferences.js'
 
 const Stack = createStackNavigator()
 
@@ -90,6 +91,11 @@ class App extends React.Component {
               name="Matches"
             >
               {props => <Matches {...props} user={this.state.currentUser}/>}
+            </Stack.Screen>
+            <Stack.Screen
+              name="Preferences"
+            >
+              {props => <Preferences {...props} user={this.state.currentUser}/>}
             </Stack.Screen>
           </Stack.Navigator>
         </NavigationContainer>

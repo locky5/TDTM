@@ -38,6 +38,10 @@ class Home extends React.Component {
           title="Matches"
           onPress={() => this.props.navigation.navigate('Matches')}
         />
+        <Button
+          title="Preferences"
+          onPress={() => this.props.navigation.navigate('Preferences')}
+        />
       </View>
     )
   }
