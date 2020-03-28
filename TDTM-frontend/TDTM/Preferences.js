@@ -47,7 +47,9 @@ class Preferences extends React.Component {
     event.preventDefault()
     console.warn(this.state)
 
-    fetch('http://localhost:3000/signup', {
+    let user = this.props.user
+
+    fetch('http://localhost:3000/user/' + user.id, {
       method: 'PATCH',
       headers: {
         "Content-Type": 'application/json',
