@@ -43,6 +43,7 @@ class Preferences extends React.Component {
     photo: null
   }
 
+  //to change the user's preferences
   patchUser = (event) => {
     event.preventDefault()
     console.warn(this.state)
