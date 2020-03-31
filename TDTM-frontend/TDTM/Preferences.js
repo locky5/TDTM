@@ -43,7 +43,7 @@ class Preferences extends React.Component {
     photo: null
   }
 
-  //to change the user's preferences
+  //to change the user's preferences, make sure to add a logout + preference page later
   patchUser = (event) => {
     event.preventDefault()
     console.warn(this.state)
