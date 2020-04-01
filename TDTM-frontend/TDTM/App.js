@@ -37,6 +37,7 @@ class App extends React.Component {
     })
   }
 
+  //auto login if user is already found
   componentDidMount() {
     const user_id = this.state.currentUser ? this.state.currentUser.id : null
 
