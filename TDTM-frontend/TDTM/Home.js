@@ -17,6 +17,7 @@ import CreateUser from './CreateUser.js'
 class Home extends React.Component {
   render() {
     return (
+      //the button screen
       <View>
         <Button
           title="Login Through Phone Number"
